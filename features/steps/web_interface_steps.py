@@ -1,7 +1,7 @@
 # steps/comment_steps.py
 
 # notes temp:
-# comment_form_page.py doesn't use css sel. from the config file.
+# comment_form_page.py doesn't use css sel. from the config file. 
 
 # 1. add a few screenshots of test output to readme
 # 2. get badge (githab actions)
