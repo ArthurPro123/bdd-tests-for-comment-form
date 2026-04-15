@@ -1,8 +1,6 @@
 # Multi-Site Comment Form Testing Framework
 
-<!--
-[![Behave Tests](https://github.com/yourusername/your-repo/actions/workflows/tests.yml/badge.svg)](https://github.com/yourusername/your-repo/actions/workflows/tests.yml)
--->
+[![Run Behave Tests](https://github.com/ArthurPro123/bdd-tests-for-multi-site-comment-form/actions/workflows/tests.yml/badge.svg)](https://github.com/ArthurPro123/bdd-tests-for-multi-site-comment-form/actions/workflows/tests.yml)
 
 BDD test automation framework for validating comment forms across multiple websites using Behave and Playwright.
 
