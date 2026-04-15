@@ -1,7 +1,7 @@
 sites:
   snatches:
     name: "CodeSnatches Tutorials"
-    url: "https://localhost/codesnatches/tutorials"
+    url: "https://codesnatches.com/tutorials"
     form_selector: "#commentForm"
     username_field_selector: "#username_comm"
     content_field_selector: "#content_comm"
@@ -15,7 +15,7 @@ sites:
 
   services:
     name: "Services - About"
-    url: "https://localhost/services/about"
+    url: "https://codesnatches.com/about"
     form_selector: "#commentForm"
     username_field_selector: "#username_comm"
     content_field_selector: "#content_comm"
