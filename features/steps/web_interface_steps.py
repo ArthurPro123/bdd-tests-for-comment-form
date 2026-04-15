@@ -1,5 +1,6 @@
 # web_interface_steps.py
 
+"""
 Step definitions for comment form testing across multiple sites.
 
 This module contains Behave step implementations that interact with the
