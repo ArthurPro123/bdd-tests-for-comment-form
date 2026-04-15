@@ -90,6 +90,6 @@ Took 0m54.514s
 
 ---
 
-[About Me](https://codesnatches.com/qa/)
+[About Arthur Pro](https://codesnatches.com/qa/)
 |
-[Contact Form](https://codesnatches.com/qa/#nav_contact)
+[Contact Me](https://codesnatches.com/qa/#nav_contact)
