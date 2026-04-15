@@ -68,11 +68,15 @@ Run: `playwright install firefox`
 ---
 
 ## Sample Output
-
+![Test Execution Output](screenshots/Screenshot_combined.png)
+<!--
+```
 1 feature passed, 0 failed, 0 skipped
 5 scenarios passed, 0 failed, 0 skipped
 84 steps passed, 0 failed, 0 skipped, 0 undefined
 Took 0m54.514s
+```
+-->
 
 ---
 
