@@ -84,9 +84,12 @@ Took 0m54.514s
 
 ## Requirements
 
+<!--
 - behave==1.2.6
 - playwright==1.40.0
 - pyyaml==6.0
+-->
+All required packages are listed in [requirements.txt](requirements.txt).
 
 ---
 
