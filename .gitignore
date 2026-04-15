@@ -37,4 +37,4 @@ env/
 .behave/
 tags
 CONTEXT.TXT
-reports/
+reports/*

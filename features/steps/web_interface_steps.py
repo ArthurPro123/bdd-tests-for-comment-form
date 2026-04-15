@@ -1,12 +1,5 @@
-# steps/comment_steps.py
+# web_interface_steps.py
 
-# notes temp:
-# comment_form_page.py doesn't use css sel. from the config file. 
-
-# 1. add a few screenshots of test output to readme
-# 2. get badge (githab actions)
-
-"""
 Step definitions for comment form testing across multiple sites.
 
 This module contains Behave step implementations that interact with the

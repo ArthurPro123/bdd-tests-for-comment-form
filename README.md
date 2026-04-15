@@ -36,7 +36,7 @@ Run: `python -m venv venv`
 
 Run: `pip install -r requirements.txt`
 
-**Step 4: Install Playwright browsers**
+**Step 4: Install a Playwright browser**
 
 Run: `playwright install firefox`
 
@@ -47,7 +47,7 @@ Run: `playwright install firefox`
 - All tests: `behave`
 - Smoke tests: `behave -t smoke`
 - Specific site: `behave -D site=services`
-- Specific scenario: `behave -n "Scenario name"`
+- Specific scenario: `behave -n "<Scenario Name>"`
 - Detailed output: `behave --no-capture -t smoke`
 
 ---
@@ -56,9 +56,9 @@ Run: `playwright install firefox`
 
 - `features/comment_submission.feature` - Gherkin scenarios
 - `features/steps/web_interface_steps.py` - Step definitions
+- `features/environment.py` - Behave hooks
 - `pages/comment_form_page.py` - Page Object Model
 - `config/sites.yaml` - Site configs
-- `environment.py` - Behave hooks
 
 ---
 
