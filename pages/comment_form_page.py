@@ -25,9 +25,8 @@ class CommentFormPage:
         self.error_container_selector = site_config.get('error_container_selector')
         self.error_list_selector = site_config.get('error_list_selector')
         self.success_container_selector = site_config.get('success_container_selector', '.main-message--success')
-        self.success_text = site_config.get('success_message', 'Your comment has been posted')
 
-    def navigate(self):
+    def navigate(self) -> None:
         """Navigate to site URL and wait for form to load."""
         self.page.goto(self.config['url'], wait_until='networkidle')
         self.page.wait_for_selector(self.form_selector)
@@ -42,35 +41,50 @@ class CommentFormPage:
         words = captcha_question.lower().split()
         return str(word_to_num.get(words[0], 0) + word_to_num.get(words[2], 0))
 
-    def fill_username(self, username: str):
+    def fill_username(self, username: str) -> None:
         """Fill username field. Empty string clears the field."""
         self.page.fill(self.username_field_selector, username or "")
 
-    def fill_content(self, content: str):
+    def fill_content(self, content: str) -> None:
         """Fill comment content field. Empty string clears the field."""
         self.page.fill(self.content_field_selector, content or "")
 
-    def fill_challenge(self, answer: str = None):
+    def fill_challenge(self, answer: str = None) -> None:
         """Fill challenge field. Auto-calculates answer if not provided."""
         if not answer:
             answer = self.get_captcha_answer()
         self.page.fill(self.challenge_field_selector, answer)
 
-    def submit_form(self):
+    def submit_form(self) -> None:
         """Submit form and wait for response."""
         self.page.click(self.submit_button_selector)
 
-    def submit_empty_form(self):
-        """Submit form without waiting (used for validation testing)."""
-        self.page.click(self.submit_button_selector)
 
-    def is_error_displayed(self) -> bool:
-        """Check if error message is visible (3 second timeout)."""
+    def is_error_displayed(self, expected_text: str = None) -> bool:
+        """
+        Check if error message is visible.
+        If expected_text provided, also verify it contains that text.
+        Handles optional (s) for singular/plural variations.
+        """
         try:
-            self.page.wait_for_selector(f"{self.error_container_selector}:not([style*='display: none'])", timeout=3000)
+            # Check visibility first
+            self.page.wait_for_selector(
+                f"{self.error_container_selector}:not([style*='display: none'])", 
+                timeout=3000
+            )
+            
+            # If text provided, verify content
+            if expected_text:
+                import re
+                error_text = self.page.locator(self.error_container_selector).text_content()
+                pattern = expected_text.replace("(s)", "s?")
+                return bool(re.search(pattern, error_text))
+            
             return True
+            
         except:
             return False
+
 
     def get_error_messages(self) -> list:
         """Extract and return list of validation error messages."""
@@ -81,10 +95,10 @@ class CommentFormPage:
         except:
             return []
 
-    def is_success_message_displayed(self) -> bool:
+    def is_success_message_displayed(self, success_text: str) -> bool:
         """Check if success message is displayed."""
         try:
             self.page.wait_for_selector(self.success_container_selector, timeout=3000)
-            return self.success_text.lower() in self.page.text_content(self.success_container_selector).lower()
+            return success_text.lower() in self.page.text_content(self.success_container_selector).lower()
         except:
             return False

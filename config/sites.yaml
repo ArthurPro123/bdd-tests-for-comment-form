@@ -10,7 +10,6 @@ sites:
     error_container_selector: ".main-message--error"
     success_container_selector: ".main-message--success"
     error_list_selector: "#formErrorList"
-    success_message: "Your comment has been posted"
     
 
   services:
@@ -24,7 +23,6 @@ sites:
     error_container_selector: ".main-message--error"
     success_container_selector: ".main-message--success"
     error_list_selector: "#formErrorList"
-    success_message: "Your comment has been posted"
     
 
   f-guitar:
@@ -38,4 +36,3 @@ sites:
     error_container_selector: ".main-message--error"
     success_container_selector: ".main-message--success"
     error_list_selector: "#formErrorList"
-    success_message: "Your comment has been posted"

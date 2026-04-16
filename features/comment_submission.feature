@@ -39,7 +39,7 @@ Feature: Comment Form Submission on Multiple Sites
 
     When I navigate to the comment form on "<site>"
     And I submit the empty form
-    Then I should see an error message displayed
+    Then I should see an error message containing "Please check the following fields"
 		And I should see the following validation errors:
 		| field                | error                                      |
 		| Your Alias or Name   | Your Alias or Name                         |
@@ -65,7 +65,7 @@ Feature: Comment Form Submission on Multiple Sites
       | content   | Test comment  |
 
     And I submit the form
-    Then I should see an error message displayed
+    Then I should see an error message containing "Please check the following field"
     And I should see field error "Your Alias or Name"
 
     Examples:
@@ -87,7 +87,7 @@ Feature: Comment Form Submission on Multiple Sites
       | content   |              |
 
     And I submit the form
-    Then I should see an error message displayed
+    Then I should see an error message containing "Please check the following field"
     And I should see field error "Comments"
 
     Examples:

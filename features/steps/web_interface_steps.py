@@ -91,28 +91,33 @@ def step_submit_form(context):
     context.current_form.submit_form()
 
 
-@then('I should see success message "{message}"')
-def step_check_success_message(context, message):
+@then('I should see success message "{message_text}"')
+def step_check_success_message(context, message_text):
     """
     Verify that a success message is displayed after form submission.
     
     Args:
         context: Behave context containing current_form
-        message: Expected success message text
+        message_text: Expected success message text
     """
-    assert context.current_form.is_success_message_displayed(), \
-        f"Success message '{message}' not displayed"
+    assert context.current_form.is_success_message_displayed(message_text), \
+        f"Success message '{message_text}' not displayed"
 
 
 @then('I should see an error message displayed')
-def step_check_error_displayed(context):
+@then('I should see an error message containing "{expected_text}"')
+def step_check_error_displayed(context, expected_text: str = None):
     """
     Verify that an error message is displayed after invalid form submission.
+    If expected_text provided, also verify error message contains that text.
+    Supports optional (s) pattern for singular/plural variations.
     
     Args:
         context: Behave context containing current_form
+        expected_text: substring expected in the error message (optional)
     """
-    assert context.current_form.is_error_displayed(), "Error message not displayed"
+    assert context.current_form.is_error_displayed(expected_text), \
+        "Error message not displayed or text mismatch"
 
 
 @then('I should see the following validation errors')
